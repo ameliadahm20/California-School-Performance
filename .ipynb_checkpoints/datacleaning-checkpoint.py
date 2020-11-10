@@ -49,7 +49,7 @@ def clean(df):
             'HIcount': 'Hispanic',
             'HIpct': 'HispanicPct',
             'MRcount': 'MultipleRace',
-            'MRpct': 'MulitpleRacePct',
+            'MRpct': 'MultipleRacePct',
             'PIcount': 'PacificIslander',
             'PIpct': 'PacificIslanderPct',
             'WHcount': 'White',
