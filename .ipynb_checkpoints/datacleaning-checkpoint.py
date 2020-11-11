@@ -76,7 +76,7 @@ def clean(df):
     #scale outliers down to highest non-outlier value
     df.loc[df['AfricanAmericanPct'] >= 30, 'AfricanAmericanPct'] = 30
     df.loc[df['AmericanIndianPct'] >= 40, 'AmericanIndianPct'] = 40
-    df.loc[df['MulitpleRacePct'] >= 30, 'MulitpleRacePct'] = 30
+    df.loc[df['MultipleRacePct'] >= 30, 'MultipleRacePct'] = 30
     df.loc[df['PacificIslanderPct'] >= 10, 'PacificIslanderPct'] = 10
     df.loc[df['HomelessPct'] >= 40, 'HomelessPct'] = 40
     df.loc[df['MigrantPct'] >= 22, 'MigrantPct'] = 22
@@ -138,11 +138,18 @@ def dataprep(df):
     
     #drop all columns that have been used to create dummies or other variables
     df.drop(columns = 
-            ['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 'AssistStatus', 'ELATested', 'ELAStdMetPct'],
-            inplace = False
+            ['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 'AssistStatus', 'ELATested', 'ELAStdMetPct'], axis = 1,
+            inplace = False)
     
     #drop columns that will not be used or are repetitive 
-    df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 'AfricanAmerican', 'AmericanIndian', 'Asian', 'Filipino', 'Hispanic', 'MultipleRace', 'PacificIslander', 'White', 'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], inplace=False)
+    df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 
+                     'AfricanAmerican', 'AmericanIndian', 'Asian', 'Filipino', 
+                     'Hispanic', 'MultipleRace', 'PacificIslander', 'White', 
+                     'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 
+                     'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 
+                     'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 
+                     'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], axis = 1, 
+            inplace=False)
     
     return df
     
