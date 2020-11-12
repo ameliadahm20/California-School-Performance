@@ -130,26 +130,40 @@ def dataprep(df):
                      (df['LocaleDistrict'] == '11') | 
                      (df['LocaleDistrict'] == '13')), 1, 0)
     
+    #create categorical variable for grouped locales
+    df['Locale'] = df['LocaleDistrict'].map(
+                    {'41' : 'Rural', '42' : 'Rural', '42' : 'Rural', 
+                     '21' : 'Suburban', '22' : 'Suburban', 
+                     '32' : 'Town', '33' : 'Town', 
+                     '12': 'City', '11': 'City', '13' : 'City'})
+    
     #create dummy variable for government assistance
     df['assistance'] = np.where(df['AssistStatus'] == 'Differentiated Assistance', 1, 0)
     
-    #create target variable by binning using the 75% quantile value
+    #create target variable by binning using the 75% quantile value as the metric for if the school is 'on track'
     df['target'] = np.where(df.ELAStdMetPct >= 61.225, 1, 0)
     
     #drop all columns that have been used to create dummies or other variables
-    df.drop(columns = 
-            ['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 'AssistStatus', 'ELATested', 'ELAStdMetPct'], axis = 1,
-            inplace = False)
+    df = df.drop(columns = 
+            ['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 
+             'AssistStatus', 'ELATested'], axis = 1,
+            inplace = True)
     
     #drop columns that will not be used or are repetitive 
-    df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 
+    df = df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 
                      'AfricanAmerican', 'AmericanIndian', 'Asian', 'Filipino', 
                      'Hispanic', 'MultipleRace', 'PacificIslander', 'White', 
                      'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 
                      'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 
                      'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 
                      'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], axis = 1, 
-            inplace=False)
+            inplace=True)
+    
+    #drop columns that contain significant null values and are criteria that only apply to high schools
+    df = df.drop(columns = 
+            ['CCPrepPct', 'GradPct', 'UCCSUReqMetPct', 'DropOutPct'], axis = 1,
+            inplace = True)
+    
     
     return df
     
