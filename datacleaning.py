@@ -83,6 +83,10 @@ def clean(df):
     df.loc[df['Unduplicated'] >= 50000, 'Unduplicated'] = 50000
     df.loc[df['EnrollCumulative'] >= 100000, 'EnrollCumulative'] = 100000
         
+    df['AbsentPct'] = df['AbsentPct'].replace(np.NaN, 0)
+    df['EnrollCumulative'] = df['EnrollCumulative'].replace(np.NaN, 0) 
+    df['SuspPct'] = df['SuspPct'].replace(np.NaN, 0) 
+    
     return df 
 
 
