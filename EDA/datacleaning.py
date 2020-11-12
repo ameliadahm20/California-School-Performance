@@ -28,6 +28,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import PolynomialFeatures
 
+
 def clean(df):
     #rename columns to make easier to understand
     df.rename(columns=

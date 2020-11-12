@@ -20,8 +20,8 @@
 ```
 
 ## Overview
-\[WRITE THIS]
-
+Using data obtained from the California Department of Education, this project analyzed characteristics of school districts and the district's percentage of students meeting English/Language Arts (ELA) testing standards. As California has a goal of 100% of its students meeting ELA standards within several years, we created a target that districts that have reached 62% of students meeting standard are on track, while others are not. The goal was to create a list of the most important features that impact whether or not a district is on track to reaching 100% proficiency, so that the Department of Education and other policymakers can provide the necessary assistance and support needed to reach their ambitious goal. This project found that the best model was using logistic regression, which found that the most important features are : **\[insert features]**. As a result, the California Department of Education should **\[insert key recommendations]**. 
+ 
 
 ## Business Problem
 Students' success during and after their K-12 education is closely tied to their literacy skills. Students who are proficient in English/Language Arts (ELA) are more likely to be successful in graduating and attending a post-secondary institution. As part of an initiative that started in 2015, California's goal is to have 100% of students reaching proficiency in ELA by 2023. As we are reaching the final years of this initiative, it is important to be able to predict which schools are on track to meet this target and determine the factors that have the highest impact on the students' proficiency. This project aims to determine these factors in order to address the needs that are not being met with additional funding, intervention programs, or community engagement and support. Through actionable recommendations, we can address the needs of districts that will aid in students reaching proficiency and, hopefully, being more successful throughout their life.
@@ -41,7 +41,7 @@ During this process, we also created the target variable. This was engineered fr
 
 Based on prior knowledge and experience, we started our analysis by looking at the impact of socioeconomic status, English language learners, and absenteeism on a district being on target. Absenteeism refers to the percentage of students who missed 10 or more school days. 
 
-![barcharts](images/barchart.jpg)
+![barcharts](images/barcharts.png)
 
 This chart shows that, as expected, the average percentage of students who are socioeconomically disadvantaged, English language learners, or chronically absent, is higher in districts that are not meeting their testing target. 
 
@@ -51,19 +51,20 @@ Furthermore, the map below shows the relationship between the percentage of stud
 
 Again, it is clear to see the impact that socioeconomic status has on ELA testing proficiency.
 
-In creating a model from this data, this project focused on models that are highly interpretable in order to be able to understand the importance of specific characteristics in hopes of obtaining actionable next steps to address the needs of districts. We used precision as the evaluation metric in order to select the best model. This is because this scenario requires minimizing false positives. In this case, we do not want districts to be labeled as on track for success and not receive additional support when they may need it. Using this metric, the best model was \[**insert model here!]. 
+In creating a model from this data, this project focused on models that are highly interpretable in order to be able to understand the importance of specific characteristics in hopes of obtaining actionable next steps to address the needs of districts. We used precision as the evaluation metric in order to select the best model. This is because this scenario requires minimizing false positives. In this case, we do not want districts to be labeled as on track for success and not receive additional support when they may need it. Using this metric, the best model was **\[insert model here!]**. 
 
 From this model, we determined the following features were the more impactful:
 
-\[insert feature importance]
+**\[insert feature importance]**
 
 
 
 
 ## Evaluation
 
-\[talk about metric scores and pros/cons about the model]
+As mentioned above, the focus was on improving precision for this model in order to minimize the number of false positives. In other words, we want to minimize the number of districts that are classified as being on track to high proficiency when they are not. The final model had a precision of **\[insert precision]**. While this model may lead to higher rates of false negatives (districts classified as needing support when they do not), there is no downside to giving additional support to districts. The only issue that could arise is resource allocation. 
+
+The true goal of this project, though, was to assess the importance of different features of a district, which this model has done. 
 
 ## Conclusion and Next Steps
 
-\[more research, community funding, smaller schools, additional ELL support]

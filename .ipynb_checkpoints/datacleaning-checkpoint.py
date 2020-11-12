@@ -28,11 +28,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import PolynomialFeatures
 
-
-#Import data set
-df = pd.read_csv('data/California_School_District_Areas_2018-19.csv')
-pd.set_option('display.max_columns', None)
-
 def clean(df):
     #rename columns to make easier to understand
     df.rename(columns=
@@ -161,7 +156,7 @@ def dataprep(df):
                      'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 
                      'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 
                      'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 
-                     'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], axis = 1)
+                     'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus', 'UnduplicatedPct', 'Unduplicated'], axis = 1)
     
     #drop columns that contain significant null values and are criteria that only apply to high schools
     df = df.drop(columns = 
