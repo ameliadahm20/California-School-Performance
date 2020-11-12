@@ -144,25 +144,22 @@ def dataprep(df):
     df['target'] = np.where(df.ELAStdMetPct >= 61.225, 1, 0)
     
     #drop all columns that have been used to create dummies or other variables
-    df = df.drop(columns = 
-            ['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 
-             'AssistStatus', 'ELATested'], axis = 1,
-            inplace = True)
+    #df = df.drop(columns = 
+            #['EnrollTotal', 'EnrollCharter', 'EnrollNonCharter', 'SchoolType', 
+             #'AssistStatus', 'ELATested'], axis = 1)
     
     #drop columns that will not be used or are repetitive 
-    df = df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 
-                     'AfricanAmerican', 'AmericanIndian', 'Asian', 'Filipino', 
-                     'Hispanic', 'MultipleRace', 'PacificIslander', 'White', 
-                     'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 
-                     'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 
-                     'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 
-                     'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], axis = 1, 
-            inplace=True)
+    #df = df.drop(columns=['OBJECTID', 'FedID', 'CDCode', 'CDSCode', 'UpdateNotes', 
+                     #'AfricanAmerican', 'AmericanIndian', 'Asian', 'Filipino', 
+                     #'Hispanic', 'MultipleRace', 'PacificIslander', 'White', 
+                     #'RaceNotReported', 'EnglishLearner', 'Foster', 'Homeless', 
+                     #'Migrant', 'Disability', 'SocioEconDisadvantage', 'MathTested', 
+                     #'MathStdMetPct', 'CCPrepCohortCount', 'AbsentEligCount', 
+                     #'GradCohortCount', 'GradeLowCensus', 'GradeHighCensus'], axis = 1)
     
     #drop columns that contain significant null values and are criteria that only apply to high schools
-    df = df.drop(columns = 
-            ['CCPrepPct', 'GradPct', 'UCCSUReqMetPct', 'DropOutPct'], axis = 1,
-            inplace = True)
+    #df = df.drop(columns = 
+            #['CCPrepPct', 'GradPct', 'UCCSUReqMetPct', 'DropOutPct'], axis = 1)
     
     
     return df
