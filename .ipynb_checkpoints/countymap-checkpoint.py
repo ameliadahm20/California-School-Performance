@@ -9,7 +9,7 @@ import numpy as np
 
 
 
-def get_map(fips_df, df_viz): 
+def get_map(df): 
     
     fips_df = pd.read_csv('EDA/hello_fips.csv', header=None)
     fips_df['CountyName'] = fips_df[1]  

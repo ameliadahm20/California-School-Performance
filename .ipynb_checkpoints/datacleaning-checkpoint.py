@@ -83,6 +83,8 @@ def clean(df):
     df.loc[df['Unduplicated'] >= 50000, 'Unduplicated'] = 50000
     df.loc[df['EnrollCumulative'] >= 100000, 'EnrollCumulative'] = 100000
         
+    df.ELAStdMetPct.dropna(inplace=True)
+    
     df['AbsentPct'] = df['AbsentPct'].replace(np.NaN, 0)
     df['EnrollCumulative'] = df['EnrollCumulative'].replace(np.NaN, 0) 
     df['SuspPct'] = df['SuspPct'].replace(np.NaN, 0) 
@@ -136,8 +138,8 @@ def dataprep(df):
     
     #create categorical variable for grouped locales
     df['Locale'] = df['LocaleDistrict'].map(
-                    {'41' : 'Rural', '42' : 'Rural', '42' : 'Rural', 
-                     '21' : 'Suburban', '22' : 'Suburban', 
+                    {'41' : 'Rural', '42' : 'Rural', '43' : 'Rural', 
+                     '21' : 'Suburban', '22' : 'Suburban', '23' : 'Suburban', 
                      '32' : 'Town', '33' : 'Town', 
                      '12': 'City', '11': 'City', '13' : 'City'})
     
